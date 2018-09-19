@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top navbar-expand-md navbar-light bg-transparent">
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent">
     <a class="navbar-brand" href="#">
         <img src="/img/logo.png" width="40" height="40" alt="">
         LagunaWaters

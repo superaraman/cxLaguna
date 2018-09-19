@@ -1,0 +1,19 @@
+.home-card-group {
+  height: 100vh;
+}
+
+.card-img-top {
+  height: 175px;
+}
+
+.parallax {
+  height: 40vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-image-1 {
+  background-image: url(../img/sea.jpg);
+}
