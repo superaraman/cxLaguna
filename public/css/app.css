@@ -9717,3 +9717,23 @@ a.text-dark:hover {
   visibility: hidden !important;
 }
 
+.carousel-item img {
+  height: 100vmin;
+}
+
+.card-img-top {
+  height: 175px;
+}
+
+.parallax {
+  height: 40vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax-image-1 {
+  background-image: url(/images/sea.jpg?60eef41fc095c0f747c139d4c2190428);
+}
+

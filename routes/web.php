@@ -15,4 +15,12 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'PageController@index');
+Auth::routes();
+
+Route::get('/about', 'PagesController@about');
+Route::get('/', 'PagesController@index');
+Route::get('/settings', 'PagesController@settings');
+Route::post('/settings/updateProfile', 'PagesController@updateProfile');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
