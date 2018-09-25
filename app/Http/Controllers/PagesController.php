@@ -33,16 +33,6 @@ class PagesController extends Controller
     }
 
     /**
-     * About Page
-     *
-     * @return view page of About
-     */
-    public function about()
-    {
-        return view('pages.about');
-    }
-
-    /**
      * Services Page
      *
      * @return view page of Services

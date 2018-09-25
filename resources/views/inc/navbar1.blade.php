@@ -41,7 +41,7 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/profile">Profile</a>
                             <a class="dropdown-item" href="/settings">Settings</a>
-                            <a id="btnLogout" href="#" class="dropdown-item">
+                            <a id="btnLogout" href="/logout" class="dropdown-item">
                                 {{ __('Logout') }}
                             </a>
 

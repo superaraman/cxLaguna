@@ -13,7 +13,7 @@
 </head>
 <body>
     <div id="app">
-        @include('inc.navbar1')
+        @include('inc.navbar')
         @yield('content')
         {{--@include('inc.footer')--}}
     </div>
