@@ -36,12 +36,15 @@
             @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img style="width: 27px;" src="/storage/profile_images/{{ Auth::user()->profile_image }}" class="img-thumbnail">
+                        {{--<img style="width: 27px;" src="/storage/profile_images/{{ Auth::user()->profile_image }}" class="img-thumbnail">--}}
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/profile">Profile</a>
-                        <a class="dropdown-item" href="/settings">Settings</a>
+                        @if (strtoupper(auth()->user()->role) === 'SUPER ADMIN')
+                            <a class="dropdown-item" href="/manage/users">Manage Users</a>
+                        @endif
+                        <a class="dropdown-item" href="/settings">Account Settings</a>
                         <a id="btnLogout" href="/logout" class="dropdown-item">
                             {{ __('Logout') }}
                         </a>

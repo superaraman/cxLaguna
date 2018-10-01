@@ -11,16 +11,23 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 
-Route::get('/services', 'PagesController@services');
-Route::get('/settings', 'PagesController@settings');
-Route::post('/settings/updateProfile', 'PagesController@updateProfile');
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', 'HomeController@index')->name('home');
+//Route::get('/services', 'PagesController@services');
+//Route::get('/settings', 'PagesController@settings');
+//Route::post('/settings/updateProfile', 'PagesController@updateProfile');
+
+Route::get('/home', 'PagesController@index')->name('home');
+Route::get('/', function () {
+    return redirect()->route('home');
+});
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/manage/users', 'AdminController@index')->name('admin');
+Route::get('/getListOfAdmins', 'AdminController@getListofAdmins');
+Route::get('/getCurrentAdmin', 'AdminController@getCurrentAdmin');
+Route::post('/addAdmin', 'AdminController@addAdmin');
+Route::post('/deleteAdmin', 'AdminController@deleteAdmin');
+Route::post('/updateAdminRole', 'AdminController@updateAdminRole');

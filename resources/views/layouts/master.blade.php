@@ -15,7 +15,7 @@
     <div id="app">
         @include('inc.navbar')
         @yield('content')
-        {{--@include('inc.footer')--}}
+{{--        @include('inc.footer')--}}
     </div>
 
     <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
