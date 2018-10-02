@@ -50,36 +50,6 @@ class blAdmin
     }
 
     /**
-     * Creates new admin/super admin
-     *
-     * @param Request $request
-     * @return array
-     */
-    public function addAdmin(Request $request) : array
-    {
-        $sGroupwareId = $this->cleanString($request['groupwareId']);
-        $aResult = $this->validateAdmin($sGroupwareId, $request['role']);
-        if ($aResult['bResult'] === false) {
-            return $aResult;
-        }
-        $aUser = array(
-            'username' => $sGroupwareId,
-            'role'     => $request['role']
-        );
-        $oResult = $this->oUserModel::create($aUser);
-        if ($oResult->exists === true) {
-            return array(
-                'bResult' => true,
-                'sMsg'    => 'User ' . $sGroupwareId . ' has been added as ' . $request['role']
-            );
-        }
-        return array(
-            'bResult' => false,
-            'sMsg'    => self::MSG_CANT_ADD_ADMIN
-        );
-    }
-
-    /**
      * Changes the admin role
      *
      * @param Request $request
@@ -113,30 +83,6 @@ class blAdmin
             return array('bResult' => false, 'sMsg' => self::MSG_ADMIN_DOESNT_EXIST);
         }
         return array('bResult' => true, 'sMsg' => 'Admin ' . $request['groupwareId'] . ' has been removed successfully');
-    }
-
-    /**
-     * Validates new admin details
-     *
-     * @param String $sGroupwareId
-     * @param String $sRole
-     * @return array
-     */
-    private function validateAdmin($sGroupwareId, $sRole) : array
-    {
-        if (empty($sGroupwareId) === true) {
-            return array('bResult' => false, 'sMsg' => self::MSG_ENTER_VALID_GROUPWARE);
-        }
-        if ($this->groupwareIdExists($sGroupwareId) === false) {
-            return array('bResult' => false, 'sMsg' => self::MSG_GROUPWARE_ID_DOESNT_EXIST);
-        }
-        if ($this->checkIfAdminExists($sGroupwareId) === true) {
-            return array('bResult' => false, 'sMsg' => self::MSG_ALREADY_ADMIN);
-        }
-        if ($this->isValidRole($sRole) === false) {
-            return array('bResult' => false, 'sMsg' => self::MSG_INVALID_ROLE);
-        }
-        return array('bResult' => true);
     }
 
     /**

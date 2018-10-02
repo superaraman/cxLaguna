@@ -41,7 +41,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('pages.manage-users');
+        if (strtoupper(Auth::user()->role) === 'SUPER ADMIN') {
+            return view('pages.manage-users');
+        } else {
+            return redirect('/home');
+        }
     }
 
     /**
@@ -54,20 +58,13 @@ class AdminController extends Controller
         return $this->oBlAdmin->getListofAdmins();
     }
 
+    /**
+     * Get The Current Admin
+     * @return mixed
+     */
     public function getCurrentAdmin()
     {
         return Auth::user()->username;
-    }
-
-    /**
-     * Creates new admin/super admin
-     *
-     * @param Request $request
-     * @return array
-     */
-    public function addAdmin(Request $request) : array
-    {
-        return $this->oBlAdmin->addAdmin($request);
     }
 
     /**
